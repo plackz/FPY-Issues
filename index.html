@@ -2,7 +2,7 @@
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
-        <title>Title Goes Here</title>
+        <title>FPY Issues</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,6 +12,11 @@
         <link rel="stylesheet" href="css/style.css">
 
     </head>
+
+    <header>
+        <img src="images/bluelogo_large.jpg" alt="Schlumberger corporate logo" style="float: right; width: 159px; height: 36px;">
+    </header>
+
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -20,24 +25,84 @@
         <!-- Add your site or application content here -->
         <h1>FPY Issues Report</h1>
 
-        <label for="issues">Select the issue: </label>
-        <select id="issues">
-            <option value="">--Make a choice--</option>
-            <option value="reset">Reset FPY Tool</option>
-            <option value="frozen">FPY Tool Frozen</option>
+        <p>Issues with the FPY program?</p>
 
-        </select>
+        <p>Please the issue that best describes the issue.</p>
 
-        <p></p>
+        <p class="explainer" id="explainer">(as more issues are logged we will add more button choices)</p>
+
+        <!-- select the issue
+        TODO: make this go away and put this in the main.js -->
+        <form id="selectIssuesForm">
+            <select id="selectIssues">
+                <option>--Choose--</option>
+        </form>
+       
+        <script>
+            var issues = ["FPY Reset", "Qty Error", "Issue 3"];
+            var select = document.getElementById("selectIssues");
+
+
+            for ( i = 0; i < issues.length; i++) {
+                var options = document.createElement('option');
+                options.innerHTML = issues[i];
+                options.value = issues[i];
+                select.appendChild(options);
+            } 
+        </script>
+
+            </select>
+
+        <p>
+
+        </p>
 
         <!-- add a submit choice button -->
 
+        <input type="submit" value="Submit">
+        
+        <p class="explainer" id="explainer">(as more issues are logged we will add more choices)</p>
+
+        <p>
+            <br>
+  
+        </p>
+
+        <input type="submit" value="Other">
+
+        <p>
+
+        </p>
+       
+        <!-- Reset the db and choose which one to reload - etc. handles
+        TODO: make this go away and put this in the main.js -->
+        <form id="selectDbForm">
+            <select id="selectDb">
+                <option>--FPY version--</option>
+        </form>
+       
+        <script>
+            var dbs = ["Assy", "Handles", "etc"];
+            var selectDb = document.getElementById("selectDb");
 
 
+            for ( i = 0; i < dbs.length; i++) {
+                var optionsDb = document.createElement('option');
+                optionsDb.innerHTML = dbs[i];
+                optionsDb.value = dbs[i];
+                selectDb.appendChild(optionsDb);
+            } 
+        </script>
 
+            </select>
 
+        <p>
 
+        </p>
 
+        <!-- add a submit choice button -->
+
+        <input id="restartButton" type="submitDb" value="Reset">
 
         <script src="js/main.js"></script>
     </body>
